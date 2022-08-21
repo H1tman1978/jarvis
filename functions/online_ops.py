@@ -10,6 +10,7 @@ EMAIL = config("EMAIL")
 EMAIL_PASSWORD = config("EMAIL_PASSWORD")
 NEWS_API_KEY = config("NEWS_API_KEY")
 WEATHER_ID = config("OPENWEATHER_API_KEY")
+TMDB_API_KEY = config("TMDB_API_KEY")
 
 
 def find_my_ip():
@@ -71,4 +72,10 @@ def get_weather_report(city):
     return weather, f"{temperature}\u00B0 F", f"{feels_like}\u00B0 F", f"{high}\u00B0 F", f"{low}\u00B0 F", f"{humidity}%", f"{wind_speed} mph", f"{wind_direction}\u00B0"
 
 
-
+def get_trending_movies():
+    trending_movies = []
+    response = requests.get(f"https://api.themoviedb.org/3/trending/movie/day?api_key={TMDB_API_KEY}").json()
+    results = response["results"]
+    for result in results:
+        trending_movies.append(result["original_title"])
+    return trending_movies[:5]
