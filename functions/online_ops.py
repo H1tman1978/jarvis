@@ -88,3 +88,21 @@ def get_trending_tv_shows():
     for result in results:
         trending_tv_shows.append(result["original_title"])
     return trending_tv_shows[:5]
+
+
+def get_random_joke():
+    headers = {
+        'User-Agent': 'JarvisBot (https://github.com/H1tman1978/jarvis)',
+        'Accept': 'application/json'
+    }
+    response = requests.get("https://icanhazdadjoke.com/", headers=headers).json()
+    return response["joke"]
+
+
+def send_whatsapp_message(number, message):
+    kit.sendwhatmsg_instantly(number, message)
+
+
+def get_random_advice():
+    res = requests.get("https://api.adviceslip.com/advice").json()
+    return res['slip']['advice']
