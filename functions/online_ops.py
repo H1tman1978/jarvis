@@ -83,7 +83,7 @@ def get_trending_movies():
 
 def get_trending_tv_shows():
     trending_tv_shows = []
-    response = requests.get(f"https://api.themoviedb.org/3/trending/movie/day?api_key={TMDB_API_KEY}").json()
+    response = requests.get(f"https://api.themoviedb.org/3/trending/tv/day?api_key={TMDB_API_KEY}").json()
     results = response["results"]
     for result in results:
         trending_tv_shows.append(result["original_title"])

@@ -44,7 +44,7 @@ def speak(audio):
 
 def greet_user():
     """
-    This function will great the user appropriately depending on the time of day.
+    Greets the user appropriately depending on the time of day.
     :return:
     """
     hour = int(datetime.datetime.now().hour)
