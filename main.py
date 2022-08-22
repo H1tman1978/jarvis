@@ -67,7 +67,6 @@ def take_command():
         query = r.recognize_google(audio, language='eng-us')
     except Exception as e:
         print(e)
-        speak("Sorry, an error was generated. Please check the logs, sir.")
         query = "None"
     return query
 
